@@ -18,13 +18,13 @@ Here's a step by step guide to **Import the Project** into **Unity**
 ```
 1. Open Unity Hub,
 2. Click ADD,
-3. Go inside the folder Six Friends/Six Friends,
+3. Go inside the folder you downloaded,
 4. Click Select Folder.
 ```
 
 ## Made with
 
-* [Visual Studio](https://visualstudio.microsoft.com/) and [Visual Studio Code](https://code.visualstudio.com/) - IDE used for programming
+* [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) - IDE used for programming
 * [Unity](https://unity.com/) - The Game Engine used to make the Game
 
 ## Authors
