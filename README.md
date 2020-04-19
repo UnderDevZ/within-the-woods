@@ -31,3 +31,5 @@ Here's a step by step guide to **Import the Project** into **Unity**
 
 * **Laiser** - *Leader* - The main guy behind the the project
 * **Shadow Gaming** - *Programmer* - One of the Programmer of the team
+* **PnguinMster7** - *Programmer* - One of the Programmer of the team
+* **Swagmastre99** - *3D Artist* - One of the 3D Artist of the team
