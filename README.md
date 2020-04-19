@@ -1,4 +1,4 @@
-# within-the-woods
+# Within the Woods
 
 A **3D Open-World Horror Game** made by **Unity Game Engine**
 
