@@ -84,9 +84,11 @@ namespace DarkTreeFPS
         private void Update()
         {
             if (mouseLookEnabled && !InventoryManager.showInventory)
+            {
                 MouseLook();
-            
+
                 StandaloneMovement();
+            }
             
 
             if (lockCursor)
@@ -117,6 +119,10 @@ namespace DarkTreeFPS
                 }
             }
             slider.value = runTimer;
+        }
+        private void FixedUpdate()
+        {
+            CharacterMovement();
         }
 
         void StandaloneMovement()
@@ -226,11 +232,6 @@ namespace DarkTreeFPS
             
         }
         
-        void FixedUpdate()
-        {
-            CharacterMovement();
-        }
-        
         void CharacterMovement()
         {
             var camForward = camHolder.transform.forward;
@@ -271,11 +272,10 @@ namespace DarkTreeFPS
 
         bool CheckMovement()
         {
-                if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
-                {
-                    return true;
-                }
-            
+            if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0 || Input.GetAxis("Horizontal") > 0 || Input.GetAxis("Horizontal") < 0)
+            {
+                return true;
+            }
             
             return false;
         }
