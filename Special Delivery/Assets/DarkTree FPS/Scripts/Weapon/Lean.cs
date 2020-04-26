@@ -12,6 +12,7 @@ namespace DarkTreeFPS
         [Header("Lean Settings")]
         public float leanRotationSpeed = 80f;
         public float leanPositionSpeed = 3f;
+        [Range(0f, 90f)]
         public float maxAngle = 30f;
         public float leanPositionShift = 0.1f;
 
