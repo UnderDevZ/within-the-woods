@@ -7,6 +7,9 @@ A **3D Open-World Horror Game** made by **Unity Game Engine**
 Things you need to install first before you import the project into **Unity**
 
 ```
+• Discord
+• GitHub
+• Trello
 • Visual Studio or Visual Studio Code
 • Unity
 ```
@@ -16,6 +19,7 @@ Things you need to install first before you import the project into **Unity**
 Here's a step by step guide to **Import the Project** into **Unity**
 
 ```
+1. Download the files,
 1. Open Unity Hub,
 2. Click ADD,
 3. Go inside the folder you downloaded,
@@ -24,6 +28,9 @@ Here's a step by step guide to **Import the Project** into **Unity**
 
 ## Made with
 
+* [Discord] (https://discord.com/) - Meeting, Planning and other stuff like that
+* [GitHub] (https://github.com/) - File Hosting
+* [Trello] (https://trello.com/) - Planning the Game
 * [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) - IDE used for programming
 * [Unity](https://unity.com/) - The Game Engine used to make the Game
 
@@ -32,4 +39,5 @@ Here's a step by step guide to **Import the Project** into **Unity**
 * **Laiser** - *Leader* - The main guy behind the the project
 * **Shadow Gaming** - *Programmer* - One of the Programmer of the team
 * **PnguinMster7** - *Programmer* - One of the Programmer of the team
-* **Swagmastre99** - *3D Artist* - One of the 3D Artist of the team
+* **ClownFiesta** - *3D Artist* - One of the 3D Artist of the team
+* **composerfreak** - *Music Composer* - One of the Music Composer/Sound Designer of the team
