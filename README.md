@@ -28,9 +28,9 @@ Here's a step by step guide to **Import the Project** into **Unity**
 
 ## Made with
 
-* [Discord] (https://discord.com/) - Meeting, Planning and other stuff like that
-* [GitHub] (https://github.com/) - File Hosting
-* [Trello] (https://trello.com/) - Planning the Game
+* [Discord](https://discord.com/) - Meeting, Planning and other stuff like that
+* [GitHub](https://github.com/) - File Hosting
+* [Trello](https://trello.com/) - Planning the Game
 * [Visual Studio](https://visualstudio.microsoft.com/) or [Visual Studio Code](https://code.visualstudio.com/) - IDE used for programming
 * [Unity](https://unity.com/) - The Game Engine used to make the Game
 
