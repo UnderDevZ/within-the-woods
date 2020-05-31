@@ -8,6 +8,8 @@ public class Collection : MonoBehaviour
 
     [SerializeField] private int collectedRocks;
 
+
+
     private void Awake()
     {
         rockSphereCollider = this.gameObject.GetComponent<SphereCollider>();                // Referencing the Sphere Collider
@@ -23,4 +25,6 @@ public class Collection : MonoBehaviour
             Destroy(this.gameObject);                                                       // Destroying the Collected Rock
         }
     }
+
+    
 }

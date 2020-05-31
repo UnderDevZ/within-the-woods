@@ -15,6 +15,7 @@ TagManager:
   - NPC
   - Flesh
   - Cover
+  - Collectible
   layers:
   - Default
   - TransparentFX
