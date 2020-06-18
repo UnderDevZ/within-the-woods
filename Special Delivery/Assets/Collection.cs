@@ -1,30 +1,39 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Collection : MonoBehaviour
 {
-    private SphereCollider rockSphereCollider;
+	#region Variable
+	private Camera playerCamera = new Camera();
 
-    [SerializeField] private int collectedRocks;
+	[Header("Collection Settings")]
+	public float range = new float();
+	[SerializeField] private float rockDistructionTime = 0.5f;
+	[SerializeField] private KeyCode pickupKey = KeyCode.F;
 
+	[Header("Collected Rocks")]
+	public int rockCollected = new int();
+	#endregion Variable
 
+	private void Awake()
+	{
+		//Getting the Camera
+		playerCamera = GetComponent<Camera>();
+	}
 
-    private void Awake()
-    {
-        rockSphereCollider = this.gameObject.GetComponent<SphereCollider>();                // Referencing the Sphere Collider
-    }
+	private void Update()
+	{
+		// Debugging a Ray to show how far Collection Range is
+		Debug.DrawRay(transform.position, transform.forward * range, Color.red);
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        Debug.Log(this.gameObject.name + " collided with " + collision.collider.name);      // Printing the Collided Gameobject's name
+		// Checking for a Rock with a Ray.
+		if (Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out RaycastHit hit, range) && hit.transform.CompareTag("Rock") && Input.GetKeyDown(pickupKey))
+		{
+			// Destroying and Collecting the Rock
+			Destroy(hit.transform.gameObject, rockDistructionTime);
+			rockCollected++;
 
-        if (collision.collider.tag == "Player")                                             // Checking if the Collided Object's Tag is Player
-        {
-            collectedRocks++;                                                               // Increasing Collected Rocks Number
-            Destroy(this.gameObject);                                                       // Destroying the Collected Rock
-        }
-    }
-
-    
+			// Debugging when Rock is Collected
+			Debug.Log("Collected a new Rock. " + "You have " + rockCollected + " Rocks");
+		}
+	}
 }
