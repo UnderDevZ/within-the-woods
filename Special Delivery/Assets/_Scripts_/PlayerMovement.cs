@@ -1,89 +1,72 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
+using System.Collections;
+using Sirenix.OdinInspector;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] private string horizontalInputName;
-    [SerializeField] private string verticalInputName;
-    [SerializeField] public float moveSpeed;
-    [SerializeField] private AnimationCurve jumpFallOff;
-    [SerializeField] public float jumpMultiplier;
-    [SerializeField] private KeyCode jumpkey;
+	private CharacterController charController;
 
+	[BoxGroup("Inputs:")]
+	[SerializeField] private string horizontalInputName = "Horizontal";
+	[BoxGroup("Inputs:")]
+	[SerializeField] private string verticalInputName = "Vertical";
+	[BoxGroup("Inputs:")]
+	[SerializeField] private KeyCode jumpkey = KeyCode.Space;
 
+	[BoxGroup("Movement Settings:")]
+	[SerializeField] public float moveSpeed;
+	[BoxGroup("Movement Settings:")]
+	[SerializeField] private AnimationCurve jumpFallOff = new AnimationCurve();
+	[BoxGroup("Movement Settings:")]
+	[SerializeField] public float jumpMultiplier;
 
-    private bool isJumping;
+	[BoxGroup("Values:")]
+	[SerializeField, ReadOnly] private bool isJumping;
 
-    private CharacterController charController;
+	private void Awake()
+	{
+		charController = GetComponent<CharacterController>();
+	}
 
-    private void Awake()
-    {
-        charController = GetComponent<CharacterController>();
+	private void Update()
+	{
+		PlayerMove();
+	}
 
+	private void PlayerMove() 
+	{
+		float vertInput = Input.GetAxis(verticalInputName) * moveSpeed * Time.deltaTime;
+		float horiInput = Input.GetAxis(horizontalInputName) * moveSpeed * Time.deltaTime;
 
-    }
+		Vector3 forwardMovement = transform.forward * vertInput;
+		Vector3 rightMovement = transform.right * horiInput;
 
-    private void Update() 
-    
-    {
-        PlayerMove();
+		charController.SimpleMove(forwardMovement + rightMovement);
+	}
 
-    }
+	private void JumpInput() 
+	{
+		if (Input.GetKeyDown(jumpkey) && isJumping)
+		{
+			isJumping = true;
+			StartCoroutine(jumpEvent());
+		}
+	}
 
-    private void PlayerMove() 
-    {
+	private IEnumerator jumpEvent() 
+	{
+		float timeInAir = 0f;
 
-        float vertInput = Input.GetAxis(verticalInputName) * moveSpeed * Time.deltaTime;
+		do
+		{
+			float jumpForce = jumpFallOff.Evaluate(timeInAir);
 
-        float horiInput = Input.GetAxis(horizontalInputName) * moveSpeed * Time.deltaTime;
+			charController.Move(Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime);
+			timeInAir += Time.deltaTime;
+			yield return null;
+		}
+		while (charController.isGrounded && charController.collisionFlags != CollisionFlags.Above);
 
-        Vector3 forwardMovement = transform.forward * vertInput;
-        Vector3 rightMovement = transform.right * horiInput;
-
-
-        charController.SimpleMove(forwardMovement + rightMovement);
-
-    }
-
-    private void JumpInput() 
-    {
-        if (Input.GetKeyDown(jumpkey) && isJumping )
-
-        {
-            isJumping = true;
-            StartCoroutine(jumpEvent());
-        
-        }
-    
-    }
-
-    private IEnumerator jumpEvent() 
-    
-    {
-        float timeInAir = 0f;
-
-        do
-        {
-            float jumpForce = jumpFallOff.Evaluate(timeInAir);
-
-            charController.Move(Vector3.up * jumpForce * jumpMultiplier * Time.deltaTime);
-            timeInAir += Time.deltaTime;
-            yield return null;
-        } while (charController.isGrounded && charController.collisionFlags != CollisionFlags.Above);
-
-
-
-
-        isJumping = false;
-
-         
-    
-    
-    }
-
-
-
-
-
+		isJumping = false;
+	}
 }

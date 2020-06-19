@@ -30,7 +30,6 @@ public class Item : MonoBehaviour
         this.id = id;
         this.title = title;
         this.description = description;
-        this.icon = icon;
         this.type = itemType;
     }
 

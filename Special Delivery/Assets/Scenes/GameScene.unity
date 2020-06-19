@@ -2279,7 +2279,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 7340087
 --- !u!114 &988149319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2968,12 +2968,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7d4cb02a5db8a4e46be4a77cc64f5147, type: 3}
---- !u!20 &1189238542 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 989395823330382001, guid: 28b8e66e9197cc24cac090b1414bd6c2,
-    type: 3}
-  m_PrefabInstance: {fileID: 989395823477144689}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1223325348
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4610,10 +4604,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 337400d6b48282746b6ee6365ce51aa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  flash: {fileID: 818016378}
   damage: 100
   range: 100
-  flash: {fileID: 818016378}
-  playerCam: {fileID: 1189238542}
 --- !u!1001 &1897181067
 PrefabInstance:
   m_ObjectHideFlags: 0

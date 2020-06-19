@@ -85,7 +85,7 @@ namespace DarkTreeFPS
         private AudioSource audioSource;
         private Camera cam;
 
-        private GameObject[] decals;
+        private GameObject[] decals = new GameObject[0];
         private GameObject[] shells;
 
         private int shellIndex = 0;

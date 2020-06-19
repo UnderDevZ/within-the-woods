@@ -1,16 +1,19 @@
 ﻿using UnityEngine;
+using Sirenix.OdinInspector;
 
 public class Collection : MonoBehaviour
 {
 	#region Variable
 	private Camera playerCamera = new Camera();
 
-	[Header("Collection Settings")]
+	[BoxGroup("Collection Settings")]
 	public float range = new float();
+	[BoxGroup("Collection Settings")]
 	[SerializeField] private float rockDistructionTime = 0.5f;
+	[BoxGroup("Collection Settings")]
 	[SerializeField] private KeyCode pickupKey = KeyCode.F;
 
-	[Header("Collected Rocks")]
+	[BoxGroup("Collected Rocks")]
 	public int rockCollected = new int();
 	#endregion Variable
 
