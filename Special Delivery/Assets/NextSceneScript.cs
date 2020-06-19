@@ -1,26 +1,10 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.SceneManagement;
+﻿using UnityEngine.SceneManagement;
 using UnityEngine;
 
 public class NextSceneScript : MonoBehaviour
 {
-
-    public void NextLevel() 
-    
+    public void NextLevel()
     {
-        SceneManager.LoadScene("SampleScene");
-    
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

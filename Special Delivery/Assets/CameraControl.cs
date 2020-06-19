@@ -10,60 +10,47 @@ public class CameraControl : MonoBehaviour
 	[BoxGroup("Inputs:")]
 	public string mouseYInputName = "Mouse Y";
 
-	[BoxGroup("Sensitivity")]
+	[BoxGroup("Mouse Settings:")]
 	public float mouseSensitivity;
+	[BoxGroup("Mouse Settings:")]
+	public bool invertMouseRotation = false;
+	[BoxGroup("Mouse Settings:")]
+	[MinMaxSlider(-360f, 360f)]
+	[SerializeField] private Vector2 xAxisClamp = new Vector2(-90f, 90f);
 
-	private float XAxisClamp;
+	private float xRotation = new float();
 
 	private void Awake()
 	{
 		playerBody = GameObject.FindGameObjectWithTag("Player").transform;
 
-		LockCursor();
-		XAxisClamp = 0f;
-		ClampXAxisRotationToValue(270f);
+		HideAndLockCursor();
 	}
 
-	private void LockCursor()
+	private void HideAndLockCursor()
 	{
 		Cursor.lockState = CursorLockMode.Locked;
+		Cursor.visible = false;
 	}
 
 	private void Update()
 	{
-		CameraRotation();
+		MouseCameraRotation();
 	}
 
-	private void CameraRotation()
+	private void MouseCameraRotation()
 	{
 		float mouseX = Input.GetAxis(mouseXInputName) * mouseSensitivity * Time.deltaTime;
 		float mouseY = Input.GetAxis(mouseYInputName) * mouseSensitivity * Time.deltaTime;
 
-		XAxisClamp += mouseY;
+		if(invertMouseRotation == false)
+			xRotation -= mouseY;
+		else if (invertMouseRotation == true)
+			xRotation += mouseY;
 
-		if (XAxisClamp > 90f)
-		{
-			XAxisClamp = 90f;
-			mouseY = 0f;
-			ClampXAxisRotationToValue(270f);
+		xRotation = Mathf.Clamp(xRotation, xAxisClamp.x, xAxisClamp.y);
 
-		}
-		else if (XAxisClamp < -90f) 
-		{
-			XAxisClamp = 90f;
-			mouseY = 0f;
-			ClampXAxisRotationToValue(90f);
-
-		}
-
-		transform.Rotate(Vector3.left * mouseY);
+		transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 		playerBody.Rotate(Vector3.up * mouseX);
-	}
-
-	private void ClampXAxisRotationToValue(float value)
-	{
-		Vector3 eulerRotation = transform.eulerAngles;
-		eulerRotation.x = value;
-		transform.eulerAngles = eulerRotation;
 	}
 }
