@@ -6,20 +6,24 @@ public class Collection : MonoBehaviour
 	#region Variable
 	private Camera playerCamera = new Camera();
 
-	[BoxGroup("Collection Settings")]
+	[BoxGroup("Collection Settings:")]
+	[Tooltip("Collection Range where Player can Collect")]
 	public float range = new float();
-	[BoxGroup("Collection Settings")]
+	[BoxGroup("Collection Settings:")]
+	[Tooltip("Destruction time of the Collected Rock from Collection")]
 	[SerializeField] private float rockDistructionTime = 0.5f;
-	[BoxGroup("Collection Settings")]
+	[BoxGroup("Collection Settings:")]
+	[Tooltip("Collection Key that Player needs to press in order to collect it")]
 	[SerializeField] private KeyCode pickupKey = KeyCode.F;
 
 	[BoxGroup("Collected Rocks")]
+	[Tooltip("Collected Rock amount")]
 	public int rockCollected = new int();
 	#endregion Variable
 
 	private void Awake()
 	{
-		//Getting the Camera
+		// Getting the Main Camera
 		playerCamera = GetComponent<Camera>();
 	}
 
@@ -36,7 +40,7 @@ public class Collection : MonoBehaviour
 			rockCollected++;
 
 			// Debugging when Rock is Collected
-			Debug.Log("Collected a new Rock. " + "You have " + rockCollected + " Rocks");
+			Debug.Log("Collected a new Rock. You have " + rockCollected + " Rocks");
 		}
 	}
 }

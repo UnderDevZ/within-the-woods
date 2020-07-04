@@ -33,7 +33,7 @@ public class GunScript : MonoBehaviour
 
 		if (Physics.Raycast(playerCam.transform.position, playerCam.transform.forward, out RaycastHit hit, range))
 		{
-			Debug.Log(hit.transform.name);
+			Debug.Log("Player just shot and hit " + hit.transform.name);
 		}
 	}
 }

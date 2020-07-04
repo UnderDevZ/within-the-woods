@@ -16,6 +16,7 @@ TagManager:
   - Flesh
   - Cover
   - Rock
+  - Button
   layers:
   - Default
   - TransparentFX
