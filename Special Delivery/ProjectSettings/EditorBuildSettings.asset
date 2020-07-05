@@ -11,25 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Imported Assets/DarkTree FPS/Scenes/Demo.unity
     guid: 19ab1397f2530324fb2c66bcde6bceae
-  - enabled: 0
-    path: 
-    guid: 8cd0a59a33185e04aa371453440b24d4
   m_configObjects: {}
