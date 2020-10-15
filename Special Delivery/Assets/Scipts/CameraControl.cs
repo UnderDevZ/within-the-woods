@@ -53,4 +53,9 @@ public class CameraControl : MonoBehaviour
 		transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
 		playerBody.Rotate(Vector3.up * mouseX);
 	}
+
+	public void SetInvertMouse(bool invertMouse)
+	{
+		invertMouseRotation = invertMouse;
+	}
 }

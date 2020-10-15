@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
 		for (int i = 0; i < resolutions.Length; i++)
 		{
 			string resolutionOption = resolutions[i].width + " x " + resolutions[i].height;
+			Debug.Log(resolutionOption);
 			resolutionOptions.Add(resolutionOption);
 
 			if (resolutions[i].width == Screen.currentResolution.width && resolutions[i].height == Screen.currentResolution.height)
@@ -52,10 +53,11 @@ public class MainMenu : MonoBehaviour
 	{
 		Application.Quit();
 
-		if (UnityEditor.EditorApplication.isPlaying == true)
-		{
-			UnityEditor.EditorApplication.isPlaying = false;
-		}
+		// Comment this out to build the game. Ctrl + K, Ctrl + C to comment selection. Ctrl + K, Ctrl + U to uncomment selection. 
+		//if (UnityEditor.EditorApplication.isPlaying == true)
+		//{
+		//	UnityEditor.EditorApplication.isPlaying = false;
+		//}
 	}
 	#endregion Main Menu
 
